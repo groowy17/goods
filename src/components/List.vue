@@ -39,18 +39,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-.list {
-  &__header {
-    font-weight: bold;
-    font-size: 1.2em;
-    text-align: center;
-  }
-
-  &__products {
-    display: flex;
-    flex-flow: row wrap;
-  }
-}
-</style>

@@ -2,11 +2,15 @@
   <div class="product">
     <div class="product__name">
       {{ product.name }}
-      <span class="product__count">({{ product.count }})</span>
     </div>
-    <div class="product__price">{{ priceInRubles }}</div>
-    <div class="product__buttons">
-      <button @click="addToCard(product)" class="product__button">Add</button>
+    <div class="product__price">{{ priceInRubles }} р.</div>
+    <div class="product__count">
+      {{ product.count }}
+    </div>
+    <div class="product__footer">
+      <button @click="addToCard(product)" class="product__button">
+        В корзину
+      </button>
     </div>
   </div>
 </template>
@@ -39,14 +43,72 @@ export default {
 
 <style lang="scss">
 .product {
-  width: 250px;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-  margin-right: 10px;
-  margin-bottom: 10px;
+  display: flex;
+  background-color: #fff;
+  margin: 0 0 15px 0;
   padding: 10px;
+  align-items: center;
+  flex-flow: row nowrap;
+
+  &__name {
+    width: 50%;
+    font-size: 0.8rem;
+    padding-right: 10px;
+  }
 
   &__count {
-    margin: 0 3px;
+    width: 10%;
+    text-align: center;
+  }
+
+  &__price {
+    width: 20%;
+    text-align: center;
+  }
+
+  &__footer {
+    text-align: right;
+    width: 20%;
+  }
+
+  &__button {
+    cursor: pointer;
+    border: 2px solid #333;
+    padding: 5px 10px;
+    font-size: 0.8em;
+    font-weight: 500;
+
+    &:hover,
+    &:focus {
+      background-color: #ffd93e;
+      transition: all 0.3s;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    display: block;
+
+    &__name {
+      width: 100%;
+      padding-right: 0;
+      padding-bottom: 15px;
+    }
+
+    &__count {
+      width: 100%;
+      text-align: right;
+      padding-bottom: 10px;
+    }
+
+    &__price {
+      width: 100%;
+      text-align: left;
+    }
+
+    &__footer {
+      text-align: right;
+      width: 100%;
+    }
   }
 }
 </style>
